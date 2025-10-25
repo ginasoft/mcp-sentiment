@@ -1,2 +1,6 @@
-gradio==4.44.0
-textblob==0.17.1
+gradio[mcp]
+textblob
+googletrans-py==4.0.0
+h2==4.3.0
+hpack==4.1.0
+hyperframe==6.1.0
