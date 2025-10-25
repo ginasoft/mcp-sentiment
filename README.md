@@ -95,11 +95,9 @@ La aplicación se abrirá automáticamente en tu navegador en `http://localhost:
 
 ## Despliegue en Hugging Face Spaces
 
-Ya que tu app está funcionando localmente, ahora vamos a desplegarla paso a paso en Hugging Face Spaces, donde Gradio corre gratis online y expone tu endpoint MCP público.
+### Objetivo
 
-### ☁️ Objetivo
-
-Subir tu proyecto `mcp-sentiment` a Hugging Face Spaces para que cualquiera (o vos desde Cursor MCP) pueda conectarse al servidor vía:
+Subir `mcp-sentiment` a Hugging Face Spaces para que cualquiera pueda conectarse al servidor vía:
 
 ```
 https://TU-USUARIO-mcp-sentiment.hf.space/gradio_api/mcp/
@@ -107,15 +105,15 @@ https://TU-USUARIO-mcp-sentiment.hf.space/gradio_api/mcp/
 
 ---
 
-### 🧩 Paso 1 — Crear tu Space
+### Paso 1 — Crear tu Space
 
-1. Entrá a 👉 [https://huggingface.co/spaces](https://huggingface.co/spaces)
+1. Entrá a [ghttps://huggingface.co/spaces](https://huggingface.co/spaces)
 
 2. Clic en **"New Space"**
 
 3. Completá los siguientes datos:
-   - **Name**: `mcp-sentiment`
-   - **Visibility**: `Public` (o Private, si querés mantenerlo cerrado)
+   - **Name**: `mcp-bilingual-sentiment`
+   - **Visibility**: `Public` (o Private)
    - **SDK**: `Gradio`
    - **Hardware**: `CPU Basic` (gratis)
 
@@ -128,7 +126,7 @@ https://huggingface.co/spaces/tu_usuario/mcp-sentiment
 
 ---
 
-### 🧩 Paso 2 — Preparar tu proyecto local
+### Paso 2 — Preparar tu proyecto local
 
 En tu carpeta `C:\Programming\mcp-sentiment`, asegurate de tener estos archivos:
 
@@ -153,7 +151,7 @@ hyperframe==6.1.0
 
 ---
 
-### 🧩 Paso 3 — Subir el código a Hugging Face
+### Paso 3 — Subir el código a Hugging Face
 
 #### Opción A: Desde Git (Recomendado)
 
@@ -161,9 +159,6 @@ Desde tu terminal (asegurate de tener Git instalado):
 
 ```bash
 cd C:\Programming\mcp-sentiment
-
-# Inicializar repositorio (si no lo hiciste antes)
-git init
 
 # Agregar archivos importantes
 git add app.py requirements.txt README.md .gitignore
@@ -175,13 +170,13 @@ git commit -m "Initial Hugging Face deployment"
 git branch -M main
 
 # Agregar remote de Hugging Face
-git remote add space https://huggingface.co/spaces/TU_USUARIO/mcp-sentiment
+git remote add space https://huggingface.co/spaces/TU_USUARIO/mcp-bilingual-sentiment
 
 # Subir a Hugging Face
 git push -u space main
 ```
 
-💡 **Primera vez usando Hugging Face?**
+**Primera vez usando Hugging Face?**
 - Te va a pedir loguearte
 - Usá tu **Access Token** que podés crear desde 👉 [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 - Cuando te pida username, poné tu nombre de usuario de HF
@@ -198,13 +193,13 @@ git push -u space main
 
 ---
 
-### 🧩 Paso 4 — Esperar a que se construya el Space
+### Paso 4 — Esperar a que se construya el Space
 
 1. Entrá a tu Space: `https://huggingface.co/spaces/tu_usuario/mcp-sentiment`
 
 2. Vas a ver que dice: **"Building app…"** (tarda 2-5 minutos)
 
-3. Cuando termine, se abrirá la interfaz web de Gradio con tu app online 🎉
+3. Cuando termine, se abrirá la interfaz web de Gradio con tu app online
 
 4. **Probá la app online**:
    - Ingresá un texto en español: `"Me encanta este proyecto"`
@@ -212,7 +207,7 @@ git push -u space main
 
 ---
 
-### 🧩 Paso 5 — Verificar el endpoint MCP
+### Paso 5 — Verificar el endpoint MCP
 
 Tu Space ahora tiene un **endpoint MCP público** en:
 
@@ -225,7 +220,7 @@ Podés usar este endpoint desde:
 - **Claude Desktop** con MCP
 - Cualquier cliente MCP remoto
 
-#### 🔌 Conectar desde Cursor IDE (Windows)
+#### Conectar desde Cursor IDE (Windows)
 
 1. Abrí **Settings** → **Features** → **Model Context Protocol**
 
@@ -250,11 +245,11 @@ Podés usar este endpoint desde:
 }
 ```
 
-3. Reiniciá Cursor
+3. Reiniciá el IDE
 
-4. Ahora podés usar el servidor MCP de sentiment analysis directamente desde Cursor!
+4. Ahora podés usar el servidor MCP de sentiment analysis directamente desde tu IDE!
 
-#### 🔌 Conectar desde Claude Desktop
+#### Conectar desde Claude Desktop
 
 Editá el archivo de configuración de Claude Desktop:
 
@@ -277,19 +272,6 @@ Agregá:
   }
 }
 ```
-
----
-
-### ✅ Checklist Final
-
-| Tarea | Estado |
-|-------|--------|
-| ✓ Crear Space en Hugging Face | ⬜ |
-| ✓ Subir `app.py` + `requirements.txt` | ⬜ |
-| ✓ Esperar build y probar UI online | ⬜ |
-| ✓ Confirmar URL pública del MCP | ⬜ |
-| ✓ Conectar desde Cursor/Claude | ⬜ |
-
 ---
 
 ### 🔧 Troubleshooting
@@ -314,7 +296,7 @@ Agregá:
 
 ---
 
-### 📚 Recursos Adicionales
+### Recursos Adicionales
 
 - [Documentación de Gradio](https://www.gradio.app/docs)
 - [Documentación de Hugging Face Spaces](https://huggingface.co/docs/hub/spaces)
